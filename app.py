@@ -13,13 +13,15 @@ app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 freezer = Freezer(app)
 
-# Remove email configuration
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 # Load project data
 def load_projects():
     with open('projects/projects.json') as f:
         return json.load(f)
+
+# Add these configuration lines
+app.config['FREEZER_DESTINATION'] = 'build'
+app.config['FREEZER_RELATIVE_URLS'] = True
 
 @app.route('/')
 def home():
@@ -40,7 +42,7 @@ def cv():
 
 @app.route('/download-cv')
 def download_cv():
-    cv_path = os.path.join(app.static_folder, 'cv/Umar CV UK.pdf')
+    cv_path = os.path.join('static', 'cv', 'Umar CV UK.pdf')
     return send_file(cv_path, as_attachment=True)
 
 @app.route('/certifications')
