@@ -23,43 +23,48 @@ def load_projects():
 app.config['FREEZER_DESTINATION'] = 'build'
 app.config['FREEZER_RELATIVE_URLS'] = True
 app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
+app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
 
 @app.route('/')
 def home():
     return render_template('home.html')
 
-@app.route('/projects')
+@app.route('/projects/')
 def projects():
     projects = load_projects()
     return render_template('projects.html', projects=projects)
 
-@app.route('/skills')
+@app.route('/skills/')
 def skills():
     return render_template('skills.html')
 
-@app.route('/cv')
+@app.route('/cv/')
 def cv():
     return render_template('cv.html')
 
-@app.route('/download-cv')
+@app.route('/download-cv/')
 def download_cv():
     cv_path = os.path.join('static', 'cv', 'Umar CV UK.pdf')
     return send_file(cv_path, as_attachment=True)
 
-@app.route('/certifications')
+@app.route('/certifications/')
 def certifications():
     return render_template('certifications.html')
 
-# Add URL generators for Frozen-Flask
+# Updated URL generators for Frozen-Flask
 @freezer.register_generator
 def url_generator():
     # Return a list of URLs for Frozen-Flask to generate
-    yield 'home'
-    yield 'projects'
-    yield 'skills'
-    yield 'cv'
-    yield 'certifications'
-    yield 'download-cv'
+    urls = [
+        ('home', {}),
+        ('projects', {}),
+        ('skills', {}),
+        ('cv', {}),
+        ('certifications', {}),
+        ('download-cv', {})
+    ]
+    for endpoint, kwargs in urls:
+        yield endpoint, kwargs
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
