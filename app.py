@@ -22,7 +22,7 @@ def load_projects():
 # Add these configuration lines
 app.config['FREEZER_DESTINATION'] = 'build'
 app.config['FREEZER_RELATIVE_URLS'] = True
-app.config['FREEZER_BASE_URL'] = '/'
+app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
 
 @app.route('/')
 def home():
@@ -60,23 +60,6 @@ def url_generator():
     yield 'cv'
     yield 'certifications'
     yield 'download-cv'
-
-# Add this new generator for static files
-@freezer.register_generator
-def static_generator():
-    # Generate URLs for static files
-    static_files = [
-        'css/style.css',
-        'cv/Umar CV UK.pdf',
-        'images/profile.jpeg',
-        'images/projects/Customer-segmentation-min.png',
-        'images/projects/Forecast-Sales-using-Machine-Learning.jpeg',
-        'images/projects/Linear-Regression-Model.png',
-        'images/projects/Sales-Dashboard.png',
-        'js/search.js'
-    ]
-    for filepath in static_files:
-        yield 'static', {'filename': filepath}
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
