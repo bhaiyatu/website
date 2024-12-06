@@ -3,12 +3,15 @@ from flask_bootstrap import Bootstrap5
 from dotenv import load_dotenv
 import os
 import json
+from flask_frozen import Freezer
+import sys
 
 # Load environment variables
 load_dotenv()
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
+freezer = Freezer(app)
 
 # Remove email configuration
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
@@ -45,4 +48,7 @@ def certifications():
     return render_template('certifications.html')
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    if len(sys.argv) > 1 and sys.argv[1] == 'build':
+        freezer.freeze()
+    else:
+        app.run(debug=True) 

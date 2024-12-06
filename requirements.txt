@@ -5,3 +5,4 @@ pandas==2.1.1
 requests==2.31.0
 python-dotenv==1.0.0
 Flask-Assets==2.0
+Frozen-Flask==0.18
