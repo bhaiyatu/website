@@ -24,6 +24,7 @@ app.config['FREEZER_DESTINATION'] = 'build'
 app.config['FREEZER_RELATIVE_URLS'] = True
 app.config['FREEZER_REMOVE_EXTRA_FILES'] = False
 app.config['FREEZER_DEFAULT_MIMETYPE'] = 'text/html'
+app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
 
 @app.route('/')
 def home():
@@ -45,7 +46,7 @@ def cv():
 @app.route('/download-cv/')
 def download_cv():
     cv_path = os.path.join('static', 'cv', 'Umar CV UK.pdf')
-    return send_file(cv_path, as_attachment=True)
+    return send_file(cv_path, as_attachment=True, mimetype='application/pdf')
 
 @app.route('/certifications/')
 def certifications():
@@ -61,7 +62,7 @@ def url_generator():
         ('skills', {}),
         ('cv', {}),
         ('certifications', {}),
-        ('download-cv', {})
+        ('download_cv', {})
     ]
     for endpoint, kwargs in urls:
         yield endpoint, kwargs
