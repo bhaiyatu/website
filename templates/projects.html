@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container" data-aos="fade-up">
+<div class="container" data-aos="fade-up" data-aos-delay="100">
     <div class="col-md-8 offset-md-2 text-center">
         <h1 class="display-4 fw-bold gradient-text">Projects</h1>
         <p class="lead text-muted mb-5">
-            A collection of projects showcasing my skills and expertise.
+            A collection of personal projects showcasing my skills and expertise.
         </p>
     </div>
     
@@ -16,7 +16,7 @@
             <div class="card h-100 project-card">
                 <img src="{{ url_for('static', filename='images/projects/' + project.image) }}" 
                      class="card-img-top" alt="{{ project.title }}">
-                <div class="card-body">
+                <div class="card-body text-center">
                     <h5 class="card-title">{{ project.title }}</h5>
                     <p class="card-text">{{ project.description }}</p>
                     <div class="technologies-container">

@@ -11,7 +11,7 @@
     {
       "title": "Linear Regression Model",
       "description": "Implemented a simple Linear Regression Model to predict the yearly amount spent by customers.",
-      "technologies": ["Python", "Scikit-learn", "Matplotlib", "Seaborn"],
+      "technologies": ["Python", "Scikit-learn", "Linear Regression", "Seaborn"],
       "url": "https://github.com/bhaiyatu/portfolio/blob/main/data-analysis/LinearRegressionImplementation/Linear%20Regression%20ML%20Implementation.ipynb",
       "display_type": "github",
       "image": "Linear-Regression-Model.png"
@@ -19,8 +19,8 @@
     {
       "title": "Customer Segmentation",
       "description": "Implemented K-means clustering to segment customers based on their purchasing behavior.",
-      "technologies": ["Python", "Scikit-learn", "Matplotlib", "Seaborn"],
-      "url": "https://tableau.com/your-dashboard",
+      "technologies": ["Python", "Scikit-learn", "Clustering", "Scaling"],
+      "url": "https://github.com/bhaiyatu/portfolio/blob/main/data-analysis/Online-Retail-Data-Clustering/Online-Retail-Data-Clustering.ipynb",
       "display_type": "github",
       "image": "Customer-segmentation-min.png"
     }
