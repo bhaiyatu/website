@@ -45,7 +45,7 @@ def cv():
 
 @app.route('/download-cv/')
 def download_cv():
-    cv_path = os.path.join('static', 'cv', 'Umar CV UK.pdf')
+    cv_path = os.path.join('static', 'cv', 'UmarCV-UK.pdf')
     return send_file(cv_path, as_attachment=True, mimetype='application/pdf')
 
 @app.route('/certifications/')
