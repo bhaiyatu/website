@@ -1,12 +1,12 @@
 {
   "projects": [
     {
-      "title": "Sales Dashboard",
-      "description": "Built a dashboard to visualize sales data and track key metrics.",
-      "technologies": ["Tableau", "Data Visualization", "Data Cleaning"],
-      "url": "https://public.tableau.com/app/profile/umar.bhaiyat/viz/SalesDashboard_17332656486160/SalesDashboard",
-      "display_type": "tableau",
-      "image": "Sales-Dashboard.png"
+      "title": "Airflow ETL Pipeline",
+      "description": "Built an ETL pipeline using Airflow and Docker to extract, transform, and load data from an API into a PostgreSQL database.",
+      "technologies": ["Airflow", "Python", "PostgreSQL", "ETL", "Docker", "Astro"],
+      "url": "https://github.com/bhaiyatu/portfolio/tree/main/data-engineering/ETLWeather",
+      "display_type": "github",
+      "image": "ETL-Pipeline.png"
     },
     {
       "title": "Linear Regression Model",
